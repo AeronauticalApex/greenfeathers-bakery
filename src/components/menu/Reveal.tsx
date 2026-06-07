@@ -23,6 +23,9 @@ export default function Reveal({
       setShown(true);
       return;
     }
+    // threshold 0 = reveal as soon as any part enters the viewport. (A higher
+    // ratio can never be reached by a section taller than the viewport, which
+    // would leave tall sections stuck invisible — e.g. the long Full Menu lists.)
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {
@@ -30,7 +33,7 @@ export default function Reveal({
           io.disconnect();
         }
       },
-      { threshold: 0.12, rootMargin: "0px 0px -8% 0px" },
+      { threshold: 0, rootMargin: "0px 0px -64px 0px" },
     );
     io.observe(el);
     return () => io.disconnect();
