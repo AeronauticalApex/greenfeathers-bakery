@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="150" height="150" viewBox="0 0 150 150">
+  <!-- A delicate, tileable wheat-sprig motif used as a very-low-opacity
+       background texture across the whole site. Sage-green strokes. -->
+  <defs>
+    <g id="wheat-sprig" fill="none" stroke="#3f6147" stroke-width="1.2"
+       stroke-linecap="round" stroke-opacity="0.13">
+      <!-- stem -->
+      <path d="M25 70 L25 22" />
+      <!-- top aristas -->
+      <path d="M25 22 L21 9 M25 22 L25 6 M25 22 L29 9" />
+      <!-- grain barbs, paired up the stalk -->
+      <path d="M25 62 L18 56 M25 62 L32 56
+               M25 54 L18 48 M25 54 L32 48
+               M25 46 L18 40 M25 46 L32 40
+               M25 38 L18 32 M25 38 L32 32
+               M25 30 L18 24 M25 30 L32 24" />
+    </g>
+  </defs>
+  <use href="#wheat-sprig" transform="translate(-2 2) rotate(7 25 45)" />
+  <use href="#wheat-sprig" transform="translate(80 34) rotate(-17 25 45)" />
+  <use href="#wheat-sprig" transform="translate(34 74) rotate(151 25 45) scale(0.85)" />
+</svg>
