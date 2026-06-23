@@ -25,35 +25,36 @@ export default function AboutPage() {
         Our little farm bakery
       </h1>
 
-      {/* The bakers */}
+      {/* The founders */}
       <figure className="mt-8 overflow-hidden rounded-3xl shadow-soft ring-1 ring-green-900/10">
         {/* eslint-disable-next-line @next/next/no-img-element */}
         <img
-          src="/photos/the-bakers.webp"
-          alt="The two bakers behind Greenfeathers Farm Bakery at their market stall"
+          src="/photos/founders-bikes.webp"
+          alt="The two founders of Greenfeathers Farm Bakery riding bikes together"
           className="h-full w-full object-cover"
         />
       </figure>
 
-      {/* ----------------------------------------------------------------- */}
-      {/* PLACEHOLDER COPY — owner: please replace the italic paragraphs    */}
-      {/* below with your own story. The notes in [brackets] are prompts.   */}
-      {/* ----------------------------------------------------------------- */}
-      <div className="mt-9 space-y-5 leading-relaxed text-ink/80">
-        <p className="rounded-xl border border-dashed border-crust/40 bg-cream-50 px-4 py-2 text-sm text-crust">
-          ✏️ <strong>Placeholder copy — replace this section with your own words.</strong>
+      <div className="mt-9 space-y-5 text-lg leading-relaxed text-ink/80">
+        <p>
+          Every Friday night, at sundown, Jewish people begin to observe Shabbat. This
+          typically includes a family dinner and saying three prayers &mdash; said while
+          lighting two candles, drinking a tiny glass of wine or grape juice, and eating a
+          special braided egg bread called &ldquo;challah.&rdquo;
         </p>
-        <p className="italic">
-          [Tell folks how Greenfeathers Farm Bakery began — who started it, when, and what
-          drew you to baking on the farm here in Springfield, Vermont.]
+        <p>
+          For many years our family in rural Vermont had to travel long distances to find
+          challah. Finally we started making it ourselves &mdash; and realized it could be a
+          wonderful service to bake challah for others who need it.
         </p>
-        <p className="italic">
-          [Share your love of sourdough — your starter, the long slow ferments, why
-          everything is baked fresh and posted new each week instead of sitting on a shelf.]
+        <p>
+          In January 2025 we began our microbakery and called it Greenfeathers Farm Bakery.
+          As the bakery has grown, we&rsquo;ve added other traditional Jewish bakery items
+          including Montreal-style bagels, Jewish rye bread, and chocolate and cinnamon babka.
         </p>
-        <p className="italic">
-          [Add a warm note about the farm, the black hen that inspired our logo, and what
-          customers can expect when they order from you.]
+        <p>
+          We list those items as products of &ldquo;The Vermont Challah Company&rdquo; as a
+          tribute to our original inspiration for the bakery.
         </p>
       </div>
 
