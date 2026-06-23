@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 };
 
 const GALLERY = [
-  { src: "/photos/rooster.webp", alt: "One of the farm's roosters" },
+  { src: "/photos/pond.webp", alt: "The garden pond with water lilies and fish on the farm" },
   { src: "/photos/fresh-eggs.webp", alt: "Fresh eggs gathered on the farm" },
   { src: "/photos/decorating-cookies.webp", alt: "Hand-decorating cookies in the bakery" },
   { src: "/photos/market-stall.webp", alt: "The Greenfeathers Farm Bakery market stall" },
