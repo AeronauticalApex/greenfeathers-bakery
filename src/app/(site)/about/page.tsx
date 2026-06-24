@@ -5,7 +5,7 @@ import TextCTA from "@/components/TextCTA";
 export const metadata: Metadata = {
   title: "About",
   description:
-    "The story behind Greenfeathers Farm Bakery — a sourdough microbakery in Springfield, Vermont.",
+    "The story behind Greenfeathers Farm Bakery, a sourdough microbakery in Springfield, Vermont.",
 };
 
 const GALLERY = [
@@ -38,13 +38,13 @@ export default function AboutPage() {
       <div className="mt-9 space-y-5 text-lg leading-relaxed text-ink/80">
         <p>
           Every Friday night, at sundown, Jewish people begin to observe Shabbat. This
-          typically includes a family dinner and saying three prayers &mdash; said while
+          typically includes a family dinner and saying three prayers, said while
           lighting two candles, drinking a tiny glass of wine or grape juice, and eating a
           special braided egg bread called &ldquo;challah.&rdquo;
         </p>
         <p>
           For many years our family in rural Vermont had to travel long distances to find
-          challah. Finally we started making it ourselves &mdash; and realized it could be a
+          challah. Finally we started making it ourselves, and realized it could be a
           wonderful service to bake challah for others who need it.
         </p>
         <p>

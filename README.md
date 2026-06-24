@@ -1,7 +1,7 @@
 # Greenfeathers Farm Bakery 🐔🍞
 
 A warm, mobile-first website for a farm microbakery in Springfield, Vermont.
-Customers see the weekly menu and **text their order** — no online payments, no email.
+Customers see the weekly menu and **text their order**, no online payments, no email.
 The owner edits the week and the menu from a simple, phone-friendly `/admin` page.
 
 Built with **Next.js (App Router) + TypeScript + Tailwind CSS + Supabase**, ready to
@@ -70,7 +70,7 @@ ADMIN_SESSION_SECRET=paste-a-long-random-string-here
 
 Then visit `/admin`, enter the code, and you're in. Click **Sign out** when done.
 
-> Choose your own 6 digits — don't ship the example `123456`. The password is checked
+> Choose your own 6 digits; don't ship the example `123456`. The password is checked
 > on the server only and is never sent to the browser.
 
 ---
@@ -105,28 +105,28 @@ enabled so the public anon key can only *read* the menu.
 
 At `/admin` you can:
 
-- **Edit the week** — update the week label (e.g. "Menu for June 5") and the order
+- **Edit the week**: update the week label (e.g. "Menu for June 5") and the order
   deadline text in one quick form.
-- **Manage items** — add, edit, or remove items; set price, unit note (`(6)`, `(4)`,
+- **Manage items**: add, edit, or remove items; set price, unit note (`(6)`, `(4)`,
   `(12)`), section, and the `*` "not made with sourdough" footnote flag.
-- **Add a photo** — upload a product photo (resized in the browser, stored in the
+- **Add a photo**: upload a product photo (resized in the browser, stored in the
   public `menu-photos` bucket). Items with a photo render as large featured cards on
   the website; items without keep the elegant text style.
-- **Toggle availability** — tap an item to instantly put it on / take it off this week.
+- **Toggle availability**: tap an item to instantly put it on / take it off this week.
 - Removing a product asks **"Are you sure?"** first.
 
 ## Two public menus
 
-- **Home (`/`)** — *This Week's Menu*: just what they're baking this week, with the
+- **Home (`/`)** is *This Week's Menu*: just what they're baking this week, with the
   order deadline banner.
-- **Full Menu (`/menu`)** — the entire catalog grouped by section; this week's items
+- **Full Menu (`/menu`)** is the entire catalog grouped by section; this week's items
   carry a **"Baking this week"** badge, and the page explains that anything else can be
   ordered ahead. Both pages are driven by the same catalog + weekly picker in `/admin`.
 
 ## Section / hero background photos (ready for the client's photos)
 
 Heroes and sections accept an optional background image via the `ScrollFadeBackground`
-component — it fades + eases into frame on scroll, under a gradient wash that keeps text
+component. It fades + eases into frame on scroll, under a gradient wash that keeps text
 readable. Tasteful placeholders live in `public/placeholders/`; drop the client's real
 photos in (same filenames) or pass a new `src` to swap them in.
 
@@ -137,7 +137,7 @@ photos in (same filenames) or pass a new `src` to swap them in.
 1. Push this repo to GitHub and import it at [vercel.com](https://vercel.com).
 2. In the project's **Environment Variables**, add all five from `.env.local`
    (`ADMIN_PASSWORD`, `ADMIN_SESSION_SECRET`, the three Supabase keys).
-3. Deploy. (The login cookie is `Secure` in production, so HTTPS is required —
+3. Deploy. (The login cookie is `Secure` in production, so HTTPS is required;
    Vercel provides this automatically.)
 
 ---
@@ -148,9 +148,9 @@ photos in (same filenames) or pass a new `src` to swap them in.
 src/
   app/
     (site)/              # public pages share the header/footer layout
-      page.tsx           #   Home — hero, this week's menu, how-to-order, CTA
-      about/page.tsx     #   About — warm story (placeholder copy to fill in)
-      contact/page.tsx   #   Find Us — address, phone, Instagram, Google Map
+      page.tsx           #   Home: hero, this week's menu, how-to-order, CTA
+      about/page.tsx     #   About: warm story (placeholder copy to fill in)
+      contact/page.tsx   #   Find Us: address, phone, Instagram, Google Map
     admin/               # password-protected menu manager
       page.tsx           #   gates on auth → login or editor
       AdminLogin.tsx     #   6-digit passcode form

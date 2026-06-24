@@ -13,7 +13,7 @@ export const dynamic = "force-dynamic";
 export const metadata: Metadata = {
   title: "Full Menu",
   description:
-    "Everything Greenfeathers Farm Bakery bakes — sourdough breads, cookies, scones, bagels, muffins and more. This week's items are marked; anything else can be ordered ahead.",
+    "Everything Greenfeathers Farm Bakery bakes: sourdough breads, cookies, scones, bagels, muffins and more. This week's items are marked; anything else can be ordered ahead.",
 };
 
 export default async function FullMenuPage() {

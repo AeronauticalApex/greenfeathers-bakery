@@ -20,12 +20,12 @@ export const SEED_MENU: WeeklyMenu = {
 type Row = Omit<MenuItem, "id" | "sort_order" | "photo_url">;
 
 const ROWS: Row[] = [
-  // ---- Breads — $10 each ----
+  // ---- Breads: $10 each ----
   { name: "Classic Boule", price: 10, unit_note: "", section: "Breads", not_sourdough: false, available: true },
   { name: "Classic Batard", price: 10, unit_note: "", section: "Breads", not_sourdough: false, available: true },
   { name: "Challah", price: 10, unit_note: "", section: "Breads", not_sourdough: true, available: true },
   { name: "Sourdough Sandwich Loaf", price: 10, unit_note: "", section: "Breads", not_sourdough: false, available: false },
-  // ---- Breads — $15 each ----
+  // ---- Breads: $15 each ----
   { name: "Jalapeño-Cheddar", price: 15, unit_note: "", section: "Breads", not_sourdough: false, available: true },
   { name: "White Cheddar-Dill", price: 15, unit_note: "", section: "Breads", not_sourdough: false, available: false },
   { name: "Cinnamon-Raisin", price: 15, unit_note: "", section: "Breads", not_sourdough: false, available: false },
@@ -41,7 +41,7 @@ const ROWS: Row[] = [
   { name: "Honey Oat", price: 15, unit_note: "", section: "Breads", not_sourdough: false, available: false },
   { name: "Dark Chocolate-Espresso", price: 15, unit_note: "", section: "Breads", not_sourdough: false, available: false },
 
-  // ---- Sourdough Cookies — $15 a dozen ----
+  // ---- Sourdough Cookies: $15 a dozen ----
   { name: "Chocolate Chip with Sea Salt", price: 15, unit_note: "(12)", section: "Sourdough Cookies", not_sourdough: false, available: false },
   { name: "Lemon Crinkle", price: 15, unit_note: "(12)", section: "Sourdough Cookies", not_sourdough: false, available: true },
   { name: "Chocolate Crinkle", price: 15, unit_note: "(12)", section: "Sourdough Cookies", not_sourdough: false, available: false },
@@ -57,14 +57,14 @@ const ROWS: Row[] = [
   { name: "Iced Saigon-Cinnamon Sweet Rolls", price: 18, unit_note: "(4)", section: "Sweet Rolls & Brownies", not_sourdough: false, available: true },
   { name: "Sourdough Super Fudgy Brownies", price: 18, unit_note: "(6)", section: "Sweet Rolls & Brownies", not_sourdough: false, available: false },
 
-  // ---- Sweet Scones — 4 for $15, with glaze ----
+  // ---- Sweet Scones: 4 for $15, with glaze ----
   { name: "Maple-Pecan", price: 15, unit_note: "(4)", section: "Sweet Scones", not_sourdough: false, available: false },
   { name: "Lemon-Poppyseed", price: 15, unit_note: "(4)", section: "Sweet Scones", not_sourdough: false, available: false },
   { name: "Dark Chocolate Espresso", price: 15, unit_note: "(4)", section: "Sweet Scones", not_sourdough: false, available: true },
   { name: "Cherry-Almond", price: 15, unit_note: "(4)", section: "Sweet Scones", not_sourdough: false, available: false },
   { name: "Mini Chocolate Chip", price: 15, unit_note: "(4)", section: "Sweet Scones", not_sourdough: false, available: false },
 
-  // ---- Savory Scones — 4 for $15 ----
+  // ---- Savory Scones: 4 for $15 ----
   { name: "Mediterranean", price: 15, unit_note: "(4)", section: "Savory Scones", not_sourdough: false, available: true },
   { name: "Jalapeño-Cheddar", price: 15, unit_note: "(4)", section: "Savory Scones", not_sourdough: false, available: false },
   { name: "Parmesan-Herb", price: 15, unit_note: "(4)", section: "Savory Scones", not_sourdough: false, available: false },
@@ -73,7 +73,7 @@ const ROWS: Row[] = [
   { name: "Morning Glory", price: 15, unit_note: "(4)", section: "Muffins", not_sourdough: true, available: true },
   { name: "Gluten-free Morning Glory", price: 19, unit_note: "(4)", section: "Muffins", not_sourdough: true, available: true },
 
-  // ---- Sourdough Bagels — 6 for $12 ----
+  // ---- Sourdough Bagels: 6 for $12 ----
   { name: "Plain", price: 12, unit_note: "(6)", section: "Sourdough Bagels", not_sourdough: false, available: false },
   { name: "Everything", price: 12, unit_note: "(6)", section: "Sourdough Bagels", not_sourdough: false, available: false },
   { name: "Sesame", price: 12, unit_note: "(6)", section: "Sourdough Bagels", not_sourdough: false, available: false },
@@ -82,7 +82,7 @@ const ROWS: Row[] = [
   { name: "Pumpernickel", price: 12, unit_note: "(6)", section: "Sourdough Bagels", not_sourdough: false, available: false },
   { name: "Cinnamon-Raisin", price: 12, unit_note: "(6)", section: "Sourdough Bagels", not_sourdough: false, available: false },
 
-  // ---- English Muffins — 6 for $12 ----
+  // ---- English Muffins: 6 for $12 ----
   { name: "Plain Sourdough", price: 12, unit_note: "(6)", section: "English Muffins", not_sourdough: false, available: true },
   { name: "Cinnamon-Raisin Sourdough", price: 12, unit_note: "(6)", section: "English Muffins", not_sourdough: false, available: true },
 ];

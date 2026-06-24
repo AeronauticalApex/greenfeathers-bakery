@@ -1,4 +1,4 @@
--- Greenfeathers Farm Bakery — site-wide settings (single row, id = 1).
+-- Greenfeathers Farm Bakery: site-wide settings (single row, id = 1).
 -- For the record: mirrors the site_settings table that already exists in the
 -- database. Safe to re-run. Public read; writes go through the service-role key.
 

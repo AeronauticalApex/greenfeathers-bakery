@@ -14,7 +14,7 @@ html {
 }
 
 body {
-  /* Muted sage-cream base so the whole site stays softly green-tinted —
+  /* Muted sage-cream base so the whole site stays softly green-tinted,
      never plain white, no matter how long the page. */
   background-color: #e8ecde;
   color: theme("colors.ink");

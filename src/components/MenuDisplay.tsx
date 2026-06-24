@@ -40,7 +40,7 @@ export default function MenuDisplay({ menu, items }: MenuDisplayProps) {
 
       {groups.length === 0 ? (
         <p className="py-10 text-center font-serif text-lg italic text-ink/55">
-          This week&apos;s menu is being prepared — check back soon!
+          This week&apos;s menu is being prepared. Check back soon!
         </p>
       ) : (
         <div className="space-y-16 sm:space-y-20">

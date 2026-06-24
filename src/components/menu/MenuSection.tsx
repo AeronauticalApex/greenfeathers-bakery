@@ -19,7 +19,7 @@ function SectionHeader({ title }: { title: string }) {
 }
 
 // A section: header, then a uniform grid of medium cards (≈3 across on desktop,
-// 2 on tablet, 1–2 on mobile). Fades into frame on scroll.
+// 2 on tablet, 1-2 on mobile). Fades into frame on scroll.
 export default function MenuSection({
   section,
   items,
@@ -29,7 +29,7 @@ export default function MenuSection({
   items: MenuItem[];
   showBadges?: boolean;
 }) {
-  // A full desktop row is 3 cards. Sections with fewer (1–2 items) center their
+  // A full desktop row is 3 cards. Sections with fewer (1-2 items) center their
   // cards instead of clinging to the left; larger sections use the normal grid.
   const centered = items.length < 3;
 

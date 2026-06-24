@@ -96,7 +96,7 @@ export default function AdminEditor({
       });
       if (!res.ok) {
         const data = await res.json().catch(() => ({}));
-        notify("err", data.error || "Sorry — that didn't save. Please try again.");
+        notify("err", data.error || "Sorry, that didn't save. Please try again.");
         return false;
       }
       if (typeof window !== "undefined") router.refresh();
@@ -120,7 +120,7 @@ export default function AdminEditor({
       order_deadline: deadline.trim(),
     });
     setBusy(false);
-    if (ok) notify("ok", "Saved ✓ — your menu is updated");
+    if (ok) notify("ok", "Your menu is updated ✓");
   }
 
   // ---- Site settings (open/closed, flash sale, pickup) --------------------
@@ -144,7 +144,7 @@ export default function AdminEditor({
       pickup_delivery_body: settings.pickup_delivery_body,
     });
     setBusy(false);
-    if (ok) notify("ok", "Saved ✓ — your site settings are updated");
+    if (ok) notify("ok", "Your site settings are updated ✓");
   }
 
   // ---- Put on / take off this week (instant) ------------------------------
@@ -213,7 +213,7 @@ export default function AdminEditor({
       setItems((prev) => prev.map((i) => (i.id === id ? { ...i, ...fields } : i)));
       if (fields.available) markShown(id);
       setDraft(null);
-      notify("ok", "Saved ✓ — your catalog is updated");
+      notify("ok", "Your catalog is updated ✓");
     } else {
       let created: MenuItem;
       if (writeEnabled) {
@@ -225,7 +225,7 @@ export default function AdminEditor({
           });
           const data = await res.json().catch(() => ({}));
           setBusy(false);
-          if (!res.ok || !data.item) return notify("err", data.error || "Sorry — that didn't save.");
+          if (!res.ok || !data.item) return notify("err", data.error || "Sorry, that didn't save.");
           created = data.item as MenuItem;
           router.refresh();
         } catch {
@@ -239,7 +239,7 @@ export default function AdminEditor({
       setItems((prev) => [...prev, created]);
       if (created.available) markShown(created.id);
       setDraft(null);
-      notify("ok", `Saved ✓ — “${created.name}” added to your catalog`);
+      notify("ok", `“${created.name}” added to your catalog ✓`);
     }
   }
 
@@ -256,7 +256,7 @@ export default function AdminEditor({
         if (!ok) return;
         setItems((prev) => prev.filter((i) => i.id !== item.id));
         setDraft(null);
-        notify("ok", `Removed ✓ — “${item.name}” is gone from your catalog`);
+        notify("ok", `“${item.name}” removed from your catalog ✓`);
       },
     });
   }
@@ -425,7 +425,7 @@ export default function AdminEditor({
                             <span className="mt-0.5 block text-base">
                               <span className="font-semibold text-green-800">{formatPrice(item.price)}</span>
                               <span className={item.available ? "text-green-700" : "text-ink/45"}>
-                                {" "}· {item.available ? "On the menu" : "Not this week — tap to add"}
+                                {" "}· {item.available ? "On the menu" : "Not this week, tap to add"}
                               </span>
                             </span>
                           </span>
@@ -900,14 +900,14 @@ function PhotoUploader({
           const d = await res.json();
           url = d.url;
         } else {
-          notify("ok", "Photo added — it'll be saved for real once your storage is connected.");
+          notify("ok", "Photo added. It'll be saved for real once your storage is connected.");
         }
       } catch {
         /* keep the data URL so the photo still shows */
       }
       onChange(url);
     } catch {
-      notify("err", "Sorry — couldn't read that photo. Try a different one.");
+      notify("err", "Sorry, couldn't read that photo. Try a different one.");
     } finally {
       setUploading(false);
     }

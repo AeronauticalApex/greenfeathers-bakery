@@ -25,7 +25,7 @@ export default function Reveal({
     }
     // threshold 0 = reveal as soon as any part enters the viewport. (A higher
     // ratio can never be reached by a section taller than the viewport, which
-    // would leave tall sections stuck invisible — e.g. the long Full Menu lists.)
+    // would leave tall sections stuck invisible, e.g. the long Full Menu lists.)
     const io = new IntersectionObserver(
       ([entry]) => {
         if (entry.isIntersecting) {

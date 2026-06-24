@@ -1,4 +1,4 @@
--- Greenfeathers Farm Bakery — product photo storage.
+-- Greenfeathers Farm Bakery: product photo storage.
 -- Run once in the Supabase SQL Editor (after schema.sql). Safe to re-run.
 --
 -- Creates a PUBLIC bucket "menu-photos" that anyone can read (so photos show on

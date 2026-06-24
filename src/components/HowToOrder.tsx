@@ -40,7 +40,7 @@ export default function HowToOrder() {
         ))}
       </ol>
       <p className="mx-auto mt-7 max-w-xl rounded-xl bg-green-50 px-5 py-3 text-center text-sm text-green-800">
-        💚 <strong>Payment:</strong> Venmo when you order, or cash on delivery. No online checkout —
+        💚 <strong>Payment:</strong> Venmo when you order, or cash on delivery. No online checkout,
         just a friendly text.
       </p>
     </section>

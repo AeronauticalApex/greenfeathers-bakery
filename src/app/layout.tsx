@@ -12,11 +12,11 @@ const siteUrl =
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
   title: {
-    default: `${BUSINESS.name} — Fresh sourdough, baked weekly in Springfield VT`,
+    default: `${BUSINESS.name} · Fresh sourdough, baked weekly in Springfield VT`,
     template: `%s · ${BUSINESS.name}`,
   },
   description:
-    "A farm microbakery in Springfield, Vermont. See this week's menu and text your order — fresh sourdough breads, English muffins, scones, cookies and more.",
+    "A farm microbakery in Springfield, Vermont. See this week's menu and text your order: fresh sourdough breads, English muffins, scones, cookies and more.",
   openGraph: {
     title: BUSINESS.name,
     description: "Fresh sourdough, baked weekly on the farm in Springfield, Vermont.",
@@ -26,7 +26,7 @@ export const metadata: Metadata = {
         url: "/og.png",
         width: 1200,
         height: 630,
-        alt: `${BUSINESS.name} — fresh sourdough, baked weekly`,
+        alt: `${BUSINESS.name}: fresh sourdough, baked weekly`,
       },
     ],
   },

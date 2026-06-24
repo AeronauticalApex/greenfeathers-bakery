@@ -1,8 +1,8 @@
--- Greenfeathers Farm Bakery — database schema (idempotent migration).
+-- Greenfeathers Farm Bakery: database schema (idempotent migration).
 --
 -- Matches the app exactly: the app queries two tables, `weekly_menu` (the week
 -- header) and `menu_items` (the full catalog; the weekly selection is the
--- `available` flag — there is no separate products/selection table).
+-- `available` flag, there is no separate products/selection table).
 --
 -- SAFE TO RE-RUN on a fresh OR existing database: it creates what's missing and
 -- migrates an older table up to the current shape WITHOUT dropping data.

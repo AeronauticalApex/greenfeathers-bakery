@@ -36,11 +36,11 @@ function bg(grad) {
 }
 
 const JOBS = [
-  // Product tiles — warm, mid-tone so white overlay text stays readable.
+  // Product tiles: warm, mid-tone so white overlay text stays readable.
   { file: "product-1.jpg", w: 1280, h: 800, html: tile("linear-gradient(135deg,#caa46a 0%,#a87b43 60%,#8a6231 100%)") },
   { file: "product-2.jpg", w: 1280, h: 800, html: tile("linear-gradient(135deg,#c98a5a 0%,#a85f36 55%,#7e4526 100%)") },
   { file: "product-3.jpg", w: 1280, h: 800, html: tile("linear-gradient(135deg,#9fae7e 0%,#6f8a59 55%,#4e6b41 100%)") },
-  // Soft backgrounds for hero/section slots — light, airy.
+  // Soft backgrounds for hero/section slots: light, airy.
   { file: "hero-bg.jpg", w: 1600, h: 1000, html: bg("radial-gradient(1200px 700px at 25% 10%,#f3ead6,transparent 60%),linear-gradient(160deg,#eef0e2 0%,#dde6d0 60%,#cfd9bf 100%)") },
   { file: "section-bg.jpg", w: 1600, h: 900, html: bg("radial-gradient(1000px 600px at 80% 0%,#f4ecda,transparent 55%),linear-gradient(160deg,#eef1e4 0%,#e0e7d4 70%,#d4ddc6 100%)") },
 ];

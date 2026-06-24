@@ -1,7 +1,7 @@
--- Greenfeathers Farm Bakery — seed / refresh the full catalog (49 items).
+-- Greenfeathers Farm Bakery: seed / refresh the full catalog (49 items).
 -- Run AFTER schema.sql. Mirrors src/lib/seed.ts exactly.
 --
--- IDEMPOTENT: upserts by (section, name) — re-running never drops rows and
+-- IDEMPOTENT: upserts by (section, name); re-running never drops rows and
 -- re-applies the catalog (prices, sections, photos, and the seeded weekly
 -- selection). `available = true` means the item is on THIS WEEK's menu.
 -- NOTE: re-running resets `available` + `photo_url` to these seed values, so

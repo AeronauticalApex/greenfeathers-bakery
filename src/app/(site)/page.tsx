@@ -69,7 +69,7 @@ export default async function HomePage() {
         </section>
       )}
 
-      {/* This week's menu — front and center */}
+      {/* This week's menu, front and center */}
       <div className="animate-fade-up py-8 [animation-delay:120ms]">
         <MenuDisplay menu={menu} items={items} />
       </div>

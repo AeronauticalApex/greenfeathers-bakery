@@ -17,7 +17,7 @@ interface SettingsBody {
 }
 
 const str = (v: unknown): string => (typeof v === "string" ? v : "");
-// Date inputs come through as "YYYY-MM-DD" or "" — store blank as null.
+// Date inputs come through as "YYYY-MM-DD" or ""; store blank as null.
 const dateOrNull = (v: unknown): string | null =>
   typeof v === "string" && v.trim() ? v.trim() : null;
 
