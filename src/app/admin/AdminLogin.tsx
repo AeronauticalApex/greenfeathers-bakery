@@ -24,12 +24,16 @@ export default function AdminLogin() {
       if (!res.ok) {
         setError(data.error || "That code didn't work. Please try again.");
         setPassword("");
+        setBusy(false); // re-enable so they can try again
         return;
       }
+      // Success: keep the button in its "Signing in" state and let the server
+      // re-render replace this screen with the admin editor. Do NOT clear busy
+      // here, or the button flickers back to "Sign in" while the admin page is
+      // still loading its data on the server.
       router.refresh();
     } catch {
       setError("Something went wrong. Please try again.");
-    } finally {
       setBusy(false);
     }
   }
@@ -65,7 +69,7 @@ export default function AdminLogin() {
           disabled={busy || password.length === 0}
           className="w-full rounded-2xl bg-green-700 py-5 text-xl font-semibold text-cream-50 shadow-soft transition-colors hover:bg-green-800 disabled:opacity-50"
         >
-          {busy ? "Checking…" : "Sign in"}
+          {busy ? "Signing in…" : "Sign in"}
         </button>
       </form>
     </div>
