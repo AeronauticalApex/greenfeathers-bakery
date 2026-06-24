@@ -79,7 +79,8 @@ export default async function FullMenuPage() {
 
         {hasFootnote && (
           <p className="mt-14 text-center font-serif text-sm italic text-crust/85">
-            <span className="not-italic">*</span> items not made with sourdough
+            Items marked <span className="not-italic">*</span> are made without sourdough. Everything
+            else is sourdough.
           </p>
         )}
       </section>
