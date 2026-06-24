@@ -22,7 +22,7 @@ export default async function HomePage() {
       <section className="relative overflow-hidden">
         <ScrollFadeBackground
           src="/photos/focaccia.webp"
-          overlayClassName="bg-gradient-to-b from-ink/80 via-ink/60 to-cream-100"
+          overlayClassName="bg-gradient-to-b from-ink/75 via-ink/40 to-ink/70"
         />
         <div className="mx-auto max-w-5xl px-5 pb-4 pt-14 text-center sm:pt-20">
           <div className="animate-fade-in flex justify-center">

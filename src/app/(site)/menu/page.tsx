@@ -35,7 +35,7 @@ export default async function FullMenuPage() {
       <section className="relative overflow-hidden">
         <ScrollFadeBackground
           src="/photos/hero-blossoms.webp"
-          overlayClassName="bg-gradient-to-b from-ink/80 via-ink/60 to-cream-100"
+          overlayClassName="bg-gradient-to-b from-ink/75 via-ink/40 to-ink/70"
           position="center 35%"
         />
         <div className="mx-auto max-w-2xl px-5 pb-6 pt-14 text-center sm:pt-20">
