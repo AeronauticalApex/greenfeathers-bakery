@@ -17,7 +17,7 @@ export default function ContactPage() {
 
       <div className="mt-10 grid gap-6 sm:grid-cols-2">
         <div className="rounded-2xl border border-cream-300/70 bg-cream-50 p-6 shadow-card">
-          <h2 className="font-serif text-xl font-semibold text-ink">The farm</h2>
+          <h2 className="font-serif text-xl font-semibold text-ink">Sun Porch Pick-Up!</h2>
           <address className="mt-2 not-italic leading-relaxed text-ink/80">
             {BUSINESS.address}
           </address>

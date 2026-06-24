@@ -42,3 +42,24 @@ export interface MenuItem {
 
 /** Shape used by the admin editor forms / API payloads. */
 export type MenuItemInput = Omit<MenuItem, "id">;
+
+/** Single-row site-wide settings (id = 1). Matches the site_settings table. */
+export interface SiteSettings {
+  /** Vacation/break window start (date only, "YYYY-MM-DD") or null. */
+  closed_from: string | null;
+  /** Vacation/break window end (inclusive, "YYYY-MM-DD") or null. */
+  closed_to: string | null;
+  /** Force the closed banner on regardless of dates. */
+  force_closed: boolean;
+  /** Shown in the banner when the bakery is closed. */
+  closed_message: string;
+  /** Shown in the slim banner when the bakery is open. */
+  open_message: string;
+  flash_sale_enabled: boolean;
+  flash_sale_title: string;
+  flash_sale_body: string;
+  pickup_delivery_enabled: boolean;
+  pickup_delivery_title: string;
+  pickup_delivery_body: string;
+  updated_at?: string;
+}

@@ -5,15 +5,16 @@ import { useRouter } from "next/navigation";
 import { useMemo, useRef, useState } from "react";
 import ChickenMark from "@/components/ChickenMark";
 import { formatPrice } from "@/lib/format";
-import { SECTIONS, type MenuItem, type Section, type WeeklyMenu } from "@/lib/types";
+import { SECTIONS, type MenuItem, type Section, type SiteSettings, type WeeklyMenu } from "@/lib/types";
 
 interface AdminEditorProps {
   initialMenu: WeeklyMenu | null;
   initialItems: MenuItem[];
+  initialSettings: SiteSettings;
   writeEnabled: boolean;
 }
 
-type Tab = "week" | "catalog";
+type Tab = "week" | "catalog" | "settings";
 
 type Draft = {
   id?: string;
@@ -34,7 +35,12 @@ type Confirm = {
   action: () => void | Promise<void>;
 };
 
-export default function AdminEditor({ initialMenu, initialItems, writeEnabled }: AdminEditorProps) {
+export default function AdminEditor({
+  initialMenu,
+  initialItems,
+  initialSettings,
+  writeEnabled,
+}: AdminEditorProps) {
   const router = useRouter();
 
   const [tab, setTab] = useState<Tab>("week");
@@ -42,6 +48,7 @@ export default function AdminEditor({ initialMenu, initialItems, writeEnabled }:
   const [weekLabel, setWeekLabel] = useState(initialMenu?.week_label ?? "");
   const [deadline, setDeadline] = useState(initialMenu?.order_deadline ?? "");
   const [items, setItems] = useState<MenuItem[]>(initialItems);
+  const [settings, setSettings] = useState<SiteSettings>(initialSettings);
 
   // Which products to show on the "This Week" screen. Seeded with everything
   // already on the menu; items stay visible (toggling just flips ON/OFF in place)
@@ -114,6 +121,30 @@ export default function AdminEditor({ initialMenu, initialItems, writeEnabled }:
     });
     setBusy(false);
     if (ok) notify("ok", "Saved ✓ — your menu is updated");
+  }
+
+  // ---- Site settings (open/closed, flash sale, pickup) --------------------
+  function setSetting<K extends keyof SiteSettings>(key: K, value: SiteSettings[K]) {
+    setSettings((prev) => ({ ...prev, [key]: value }));
+  }
+
+  async function saveSettings() {
+    setBusy(true);
+    const ok = await persist("/api/admin/settings", "POST", {
+      force_closed: settings.force_closed,
+      closed_from: settings.closed_from || null,
+      closed_to: settings.closed_to || null,
+      closed_message: settings.closed_message,
+      open_message: settings.open_message,
+      flash_sale_enabled: settings.flash_sale_enabled,
+      flash_sale_title: settings.flash_sale_title,
+      flash_sale_body: settings.flash_sale_body,
+      pickup_delivery_enabled: settings.pickup_delivery_enabled,
+      pickup_delivery_title: settings.pickup_delivery_title,
+      pickup_delivery_body: settings.pickup_delivery_body,
+    });
+    setBusy(false);
+    if (ok) notify("ok", "Saved ✓ — your site settings are updated");
   }
 
   // ---- Put on / take off this week (instant) ------------------------------
@@ -263,15 +294,16 @@ export default function AdminEditor({ initialMenu, initialItems, writeEnabled }:
         </div>
 
         {/* Nav */}
-        <div className="mt-5 grid grid-cols-2 gap-2 rounded-full bg-cream-200/70 p-1.5 font-semibold">
+        <div className="mt-5 grid grid-cols-3 gap-2 rounded-full bg-cream-200/70 p-1.5 font-semibold">
           {([
             { id: "week" as Tab, label: "This Week" },
             { id: "catalog" as Tab, label: "All Products" },
+            { id: "settings" as Tab, label: "Settings" },
           ]).map((t) => (
             <button
               key={t.id}
               onClick={() => setTab(t.id)}
-              className={`rounded-full px-4 py-3 transition-colors ${
+              className={`rounded-full px-3 py-3 text-base transition-colors ${
                 tab === t.id ? "bg-green-700 text-cream-50 shadow-card" : "text-green-800 hover:bg-cream-100"
               }`}
             >
@@ -460,6 +492,124 @@ export default function AdminEditor({ initialMenu, initialItems, writeEnabled }:
               </div>
             );
           })}
+        </div>
+      )}
+
+      {/* ============================= SETTINGS ============================= */}
+      {tab === "settings" && (
+        <div className="mt-7 space-y-8">
+          {/* Open / Closed */}
+          <section className="rounded-3xl border-2 border-cream-300/80 bg-cream-50 p-5 shadow-card sm:p-6">
+            <h2 className="font-serif text-2xl font-semibold text-green-800">Open or closed</h2>
+            <p className="mt-1 text-base text-ink/60">
+              Show a notice across the whole website when you&apos;re away or on a break.
+            </p>
+            <div className="mt-5 space-y-5">
+              <ToggleRow
+                label="Close the bakery now"
+                helper="Turns on the closed notice right away"
+                on={settings.force_closed}
+                onClick={() => setSetting("force_closed", !settings.force_closed)}
+              />
+              <div className="grid grid-cols-1 gap-5 sm:grid-cols-2">
+                <BigField label="Closed from" helper="Leave blank if not planning ahead">
+                  <input
+                    type="date"
+                    value={settings.closed_from ?? ""}
+                    onChange={(e) => setSetting("closed_from", e.target.value || null)}
+                    className={inputClass}
+                  />
+                </BigField>
+                <BigField label="Closed until" helper="The day you reopen">
+                  <input
+                    type="date"
+                    value={settings.closed_to ?? ""}
+                    onChange={(e) => setSetting("closed_to", e.target.value || null)}
+                    className={inputClass}
+                  />
+                </BigField>
+              </div>
+              <BigField label="Closed message" helper="Shown when the bakery is closed">
+                <textarea
+                  value={settings.closed_message}
+                  onChange={(e) => setSetting("closed_message", e.target.value)}
+                  rows={2}
+                  className={textareaClass}
+                />
+              </BigField>
+              <BigField label="Open message" helper="Shown in the green bar when you're open">
+                <input
+                  value={settings.open_message}
+                  onChange={(e) => setSetting("open_message", e.target.value)}
+                  className={inputClass}
+                />
+              </BigField>
+            </div>
+          </section>
+
+          {/* Friday Flash Sale */}
+          <section className="rounded-3xl border-2 border-crust/40 bg-cream-50 p-5 shadow-card sm:p-6">
+            <h2 className="font-serif text-2xl font-semibold text-crust">Friday Flash Sale</h2>
+            <p className="mt-1 text-base text-ink/60">A promo box near the top of the home page.</p>
+            <div className="mt-5 space-y-5">
+              <ToggleRow
+                label="Show flash sale"
+                on={settings.flash_sale_enabled}
+                onClick={() => setSetting("flash_sale_enabled", !settings.flash_sale_enabled)}
+              />
+              <BigField label="Title" helper="e.g. Friday Flash Sale">
+                <input
+                  value={settings.flash_sale_title}
+                  onChange={(e) => setSetting("flash_sale_title", e.target.value)}
+                  className={inputClass}
+                />
+              </BigField>
+              <BigField label="Details">
+                <textarea
+                  value={settings.flash_sale_body}
+                  onChange={(e) => setSetting("flash_sale_body", e.target.value)}
+                  rows={4}
+                  className={textareaClass}
+                />
+              </BigField>
+            </div>
+          </section>
+
+          {/* Pick-Up / Delivery */}
+          <section className="rounded-3xl border-2 border-cream-300/80 bg-cream-50 p-5 shadow-card sm:p-6">
+            <h2 className="font-serif text-2xl font-semibold text-green-800">Pick-Up &amp; Delivery</h2>
+            <p className="mt-1 text-base text-ink/60">A section near the how-to-order steps.</p>
+            <div className="mt-5 space-y-5">
+              <ToggleRow
+                label="Show this section"
+                on={settings.pickup_delivery_enabled}
+                onClick={() => setSetting("pickup_delivery_enabled", !settings.pickup_delivery_enabled)}
+              />
+              <BigField label="Title" helper="e.g. Pick-Up & Delivery">
+                <input
+                  value={settings.pickup_delivery_title}
+                  onChange={(e) => setSetting("pickup_delivery_title", e.target.value)}
+                  className={inputClass}
+                />
+              </BigField>
+              <BigField label="Details">
+                <textarea
+                  value={settings.pickup_delivery_body}
+                  onChange={(e) => setSetting("pickup_delivery_body", e.target.value)}
+                  rows={4}
+                  className={textareaClass}
+                />
+              </BigField>
+            </div>
+          </section>
+
+          <button
+            onClick={saveSettings}
+            disabled={busy}
+            className="w-full rounded-2xl bg-green-700 py-4 text-xl font-semibold text-cream-50 shadow-soft transition-colors hover:bg-green-800 disabled:opacity-50"
+          >
+            Save site settings
+          </button>
         </div>
       )}
 
@@ -685,6 +835,8 @@ export default function AdminEditor({ initialMenu, initialItems, writeEnabled }:
 
 const inputClass =
   "w-full rounded-xl border-2 border-cream-300 bg-white px-4 py-3 text-lg text-ink outline-none focus:border-green-700 focus:ring-4 focus:ring-green-700/15";
+
+const textareaClass = `${inputClass} min-h-[5rem] resize-y leading-relaxed`;
 
 // Resize an image in the browser to a sensible max dimension before upload,
 // returning a JPEG data URL. Keeps uploads small and fast on phone connections.

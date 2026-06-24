@@ -30,35 +30,40 @@ export default async function FullMenuPage() {
 
   return (
     <>
-      {/* Hero with an optional (placeholder) background that fades in on scroll */}
+      {/* Hero with a background photo that fades in on scroll. A warm dark scrim
+          keeps the pale text legible over the photo. */}
       <section className="relative overflow-hidden">
         <ScrollFadeBackground
           src="/photos/hero-blossoms.webp"
-          overlayClassName="bg-gradient-to-b from-cream-100/94 via-cream-100/90 to-cream-100"
+          overlayClassName="bg-gradient-to-b from-ink/80 via-ink/60 to-cream-100"
           position="center 35%"
         />
         <div className="mx-auto max-w-2xl px-5 pb-6 pt-14 text-center sm:pt-20">
           <div className="flex justify-center">
-            <ChickenMark className="h-14 w-14 text-ink" />
+            <ChickenMark className="h-14 w-14 text-cream-50" />
           </div>
-          <h1 className="mt-4 font-serif text-4xl font-semibold text-green-800 sm:text-5xl">
+          <h1 className="mt-4 font-serif text-4xl font-semibold text-cream-50 [text-shadow:0_1px_4px_rgba(0,0,0,0.55)] sm:text-5xl">
             Our Full Menu
           </h1>
-          <p className="mx-auto mt-4 max-w-xl text-lg leading-relaxed text-ink/75">
+          <p className="mx-auto mt-4 max-w-xl text-lg font-medium leading-relaxed text-cream-50/95 [text-shadow:0_1px_4px_rgba(0,0,0,0.55)]">
             This is <em>everything</em> we bake. The items marked{" "}
-            <span className="font-semibold text-green-700">Baking this week</span> are on this
-            week&apos;s menu. Anything else may be available if you order in advance — just ask
-            when you text!
+            <span className="font-semibold text-cream-50 underline decoration-cream-200/60 underline-offset-2">
+              Baking this week
+            </span>{" "}
+            are on this week&apos;s menu. Anything else may be available if you order in advance,
+            just ask when you text!
           </p>
           <div className="mt-6 flex justify-center">
             <TextCTA />
           </div>
           {thisWeekCount > 0 && (
-            <p className="mt-4 text-sm text-ink/55">
-              {thisWeekCount} items baking this week ·{" "}
-              <Link href="/" className="text-green-700 underline-offset-4 hover:underline">
-                see this week&apos;s menu
-              </Link>
+            <p className="mt-4">
+              <span className="inline-flex items-center gap-1.5 rounded-full bg-cream-50/90 px-4 py-1.5 text-sm font-medium text-ink/70 shadow-card">
+                {thisWeekCount} items baking this week ·{" "}
+                <Link href="/" className="font-semibold text-green-700 underline-offset-4 hover:underline">
+                  see this week&apos;s menu
+                </Link>
+              </span>
             </p>
           )}
         </div>
