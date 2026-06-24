@@ -39,15 +39,26 @@ export default function Footer() {
           </a>
         </div>
       </div>
-      <div className="flex items-center justify-center gap-2 border-t border-cream-100/15 py-4 text-center text-xs text-cream-200/70">
-        <span>© {BUSINESS.name}. Baked with love on the farm.</span>
-        <span aria-hidden="true" className="text-cream-200/30">·</span>
-        <Link
-          href="/admin"
-          className="text-cream-200/45 underline-offset-2 transition-colors hover:text-cream-200/80 hover:underline"
-        >
-          Staff login
-        </Link>
+      <div className="flex flex-col items-center justify-center gap-1.5 border-t border-cream-100/15 py-4 text-center text-xs text-cream-200/70">
+        <div className="flex items-center gap-2">
+          <span>© {BUSINESS.name}. Baked with love on the farm.</span>
+          <span aria-hidden="true" className="text-cream-200/30">·</span>
+          <Link
+            href="/admin"
+            className="text-cream-200/45 underline-offset-2 transition-colors hover:text-cream-200/80 hover:underline"
+          >
+            Staff login
+          </Link>
+        </div>
+        <p className="text-cream-200/45">
+          Website by{" "}
+          <Link
+            href="/quote"
+            className="underline-offset-2 transition-colors hover:text-cream-200/80 hover:underline"
+          >
+            Aeronautical Apex Technologies
+          </Link>
+        </p>
       </div>
     </footer>
   );
