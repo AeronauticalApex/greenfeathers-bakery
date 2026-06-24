@@ -28,15 +28,21 @@ export default function MenuCard({ item, badge }: { item: MenuItem; badge?: bool
       </div>
 
       <div className="flex flex-1 items-start justify-between gap-3 p-4 sm:p-5">
-        <h3 className="font-serif text-lg font-semibold leading-snug text-ink sm:text-xl">
-          {item.name}
-          {item.not_sourdough && <sup className="ml-0.5 text-crust">*</sup>}
-          {item.unit_note && (
-            <span className="ml-1.5 align-baseline text-sm font-normal italic text-crust/70">
-              {item.unit_note}
-            </span>
+        <div className="min-w-0">
+          <h3 className="font-serif text-lg font-semibold leading-snug text-ink sm:text-xl">
+            {item.name}
+            {item.unit_note && (
+              <span className="ml-1.5 align-baseline text-sm font-normal italic text-crust/70">
+                {item.unit_note}
+              </span>
+            )}
+          </h3>
+          {item.not_sourdough && (
+            <p className="mt-1 text-xs font-semibold uppercase tracking-wide text-crust/80">
+              Made without sourdough
+            </p>
           )}
-        </h3>
+        </div>
         <span className="whitespace-nowrap font-serif text-lg font-semibold text-green-800 sm:text-xl">
           {formatPrice(item.price)}
         </span>

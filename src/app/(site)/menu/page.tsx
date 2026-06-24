@@ -18,7 +18,6 @@ export const metadata: Metadata = {
 
 export default async function FullMenuPage() {
   const { items } = await getActiveMenu();
-  const hasFootnote = items.some((i) => i.not_sourdough);
   const thisWeekCount = items.filter((i) => i.available).length;
 
   const groups = SECTIONS.map((section) => ({
@@ -76,13 +75,6 @@ export default async function FullMenuPage() {
             <MenuSection key={g.section} section={g.section} items={g.items} showBadges />
           ))}
         </div>
-
-        {hasFootnote && (
-          <p className="mt-14 text-center font-serif text-sm italic text-crust/85">
-            Items marked <span className="not-italic">*</span> are made without sourdough. Everything
-            else is sourdough.
-          </p>
-        )}
       </section>
 
       {/* Closing CTA */}

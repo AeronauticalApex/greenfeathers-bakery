@@ -11,7 +11,6 @@ interface MenuDisplayProps {
 // and each section alternates its rhythm. Driven entirely by the menu/items props.
 export default function MenuDisplay({ menu, items }: MenuDisplayProps) {
   const available = items.filter((i) => i.available);
-  const hasFootnote = available.some((i) => i.not_sourdough);
 
   const groups = SECTIONS.map((section) => ({
     section,
@@ -50,12 +49,6 @@ export default function MenuDisplay({ menu, items }: MenuDisplayProps) {
         </div>
       )}
 
-      {hasFootnote && (
-        <p className="mt-14 text-center font-serif text-sm italic text-crust/85">
-          Items marked <span className="not-italic">*</span> are made without sourdough. Everything
-          else is sourdough.
-        </p>
-      )}
     </section>
   );
 }
