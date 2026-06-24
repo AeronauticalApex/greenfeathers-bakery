@@ -32,7 +32,9 @@ export default function TextCTA({ size = "default", className = "" }: TextCTAPro
       </svg>
       <span>
         Text your order
-        <span className="ml-1.5 font-normal text-cream-200/90">{BUSINESS.phoneDisplay}</span>
+        {/* Inherit the button's text color so the number stays visible on both
+            the green button and the cream-background variant. */}
+        <span className="ml-1.5 font-normal opacity-90">{BUSINESS.phoneDisplay}</span>
       </span>
     </a>
   );
